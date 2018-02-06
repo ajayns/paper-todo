@@ -20,7 +20,7 @@ const todos = (state = [], action) => {
                     return Object.assign({}, todo, { completed: !todo.completed });
                 }
                 return todo;
-            }
+                }
             );
 
         default:

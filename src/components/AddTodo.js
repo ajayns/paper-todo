@@ -14,7 +14,12 @@ const AddTodo = ({onSubmit}) => {
 
     return (
         <div>
-            <form onSubmit={e => { onSubmit(input.value) }}>
+            <form onSubmit={e => { 
+                    e.preventDefault();
+                    onSubmit(input.value);
+                    input.value = ''; 
+                }
+            }>
                 <input type="text" placeholder="New Todo" ref={node => {input = node}} />
                 <input type="submit" value="Add" />
             </form>
