@@ -9,7 +9,6 @@ class App extends Component {
       <div>
         <AddTodo />
         <TodoList />
-        <Filter />
       </div>      
     );
   }

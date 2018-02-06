@@ -1,16 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-const Filter = () => {
+import { setFilter } from '../actions';
+import { FILTER_COMPLETED } from '../constants/filters';
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeFilter: (filter) => dispatch(setFilter(filter))
+    }
+}
+
+const Filter = ({onChangeFilter}) => {
     return (
         <div>
             Show:
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
-        </div>
+            <button onClick={e => onChangeFilter(FILTER_COMPLETED)}>Completed</button>
+        </div>        
     );
 }
 
-export default Filter;
+export default connect(null, mapDispatchToProps)(Filter);
 
