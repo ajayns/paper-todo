@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
-export const Filter = () => {
+const Filter = () => {
     return (
         <div>
             Show:

@@ -1,6 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export const TodoList = ({todos, onTodoClick}) => {
+import { toggleTodo } from '../actions';
+import { FILTER_ALL, FILTER_COMPLETED, FILTER_ACTIVE } from '../constants/filters';
+
+const filteredTodos = (todos, filter) => {
+    switch(filter) {
+        case FILTER_ALL:
+            return todos;
+        case FILTER_COMPLETED:
+            return todos.map(todo => todo.completed);
+        case FILTER_ACTIVE:
+            return todos.map(todo => !todo.completed)
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        todos: filteredTodos(state.todos, state.filter)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onTodoClick: (id) => toggleTodo(id)
+    }
+}
+
+const TodoList = ({todos, onTodoClick}) => {
     if(todos.length === 0) 
         return <div>Nothing to display.</div>
 
@@ -12,3 +39,5 @@ export const TodoList = ({todos, onTodoClick}) => {
         </div>
     );
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

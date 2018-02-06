@@ -1,6 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export const AddTodo = ({onSubmit}) => {
+import { addTodo } from '../actions';
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubmit: (text) => dispatch(addTodo(text))
+    }
+}
+
+const AddTodo = ({onSubmit}) => {
     let input;
 
     return (
@@ -12,3 +21,5 @@ export const AddTodo = ({onSubmit}) => {
         </div>
     )
 }
+
+export default connect(null, mapDispatchToProps)(AddTodo);
