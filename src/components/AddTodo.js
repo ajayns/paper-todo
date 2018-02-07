@@ -17,8 +17,10 @@ const AddTodo = ({onSubmit}) => {
             <form 
                 onSubmit={e => { 
                         e.preventDefault();
-                        onSubmit(input.value);
-                        input.value = ''; 
+                        if(input.value.trim()) {
+                            onSubmit(input.value);
+                            input.value = '';
+                        } 
                     }}
                 className="row"
             >
