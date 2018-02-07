@@ -1,6 +1,6 @@
 {
-  "name": "todo-pwa",
-  "version": "0.1.0",
+  "name": "paper-todo",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "papercss": "^1.4.1",
