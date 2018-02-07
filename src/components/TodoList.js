@@ -32,10 +32,10 @@ const List = styled.ul`
 
 const TodoList = ({todos}) => {
     if(todos.length === 0) 
-        return <div className="row flex-center">Nothing to display.</div>
+        return <div className="row flex-center">Chill bro :)</div>
 
     return (
-        <List className="child-borders child-shadows-hover">
+        <List className="child-borders">
             {todos.map(todo => 
                 <Todo 
                     className="row" 
