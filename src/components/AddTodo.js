@@ -14,14 +14,20 @@ const AddTodo = ({onSubmit}) => {
 
     return (
         <div>
-            <form onSubmit={e => { 
-                    e.preventDefault();
-                    onSubmit(input.value);
-                    input.value = ''; 
-                }
-            }>
-                <input type="text" placeholder="New Todo" ref={node => {input = node}} />
-                <input type="submit" value="Add" />
+            <form 
+                onSubmit={e => { 
+                        e.preventDefault();
+                        onSubmit(input.value);
+                        input.value = ''; 
+                    }}
+                className="row"
+            >
+                <div className="col col-sm-9 padding-right-small">
+                    <input type="text" placeholder="New Todo" ref={node => { input = node }} />
+                </div>
+                <div className="col col-sm-3 padding-left-small">
+                    <input type="submit" value="Add" className="paper-btn btn-small" />
+                </div>
             </form>
         </div>
     )

@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { toggleTodo } from '../actions';
+import Todo from './Todo';
 import { FILTER_ALL, FILTER_COMPLETED, FILTER_ACTIVE } from '../constants/filters';
 
 const filteredTodos = (todos, filter) => {
@@ -29,16 +31,18 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+const List = styled.ul`
+    padding-left: 0
+`;
+
 const TodoList = ({todos, onTodoClick}) => {
     if(todos.length === 0) 
-        return <div>Nothing to display.</div>
+        return <div className="row flex-center">Nothing to display.</div>
 
     return (
-        <div>
-            <ul>
-                {todos.map(todo => <li key={todo.id}>{todo.text}</li>)}
-            </ul>
-        </div>
+        <List className="child-borders child-shadows-hover">
+            {todos.map(todo => <Todo className="row" key={todo.id} text={todo.text} />)}
+        </List>
     );
 }
 
