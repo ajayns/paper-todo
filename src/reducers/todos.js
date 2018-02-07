@@ -6,13 +6,7 @@ import { ADD_TODO, TOGGLE_TODO } from '../constants/action-types';
 const todos = (state = [], action) => {
     switch (action.type) {
         case ADD_TODO:
-            return [...state,
-                {
-                    id: action.id,
-                    text: action.text,
-                    completed: action.completed
-                }
-            ];
+            return [...state, action.payload];
 
         case TOGGLE_TODO:
             return state.map(todo => {

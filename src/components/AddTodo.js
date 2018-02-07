@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import uuidv1 from "uuid";
 
 import { addTodo } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSubmit: (text) => dispatch(addTodo(text))
+        onSubmit: (todo) => dispatch(addTodo(todo))
     }
 }
 
@@ -17,8 +18,13 @@ const AddTodo = ({onSubmit}) => {
             <form 
                 onSubmit={e => { 
                         e.preventDefault();
+                        const id = uuidv1();
                         if(input.value.trim()) {
-                            onSubmit(input.value);
+                            onSubmit({
+                                id,
+                                text: input.value,
+                                completed: false
+                            });
                             input.value = '';
                         } 
                     }}

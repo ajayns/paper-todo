@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 const Item = styled.li`
     padding-left: 1em;
     cursor: pointer;
+    overflow-wrap: break-word;
     &:before {
         content: ""
     }
@@ -21,7 +22,8 @@ const Item = styled.li`
 const Todo = ({id, text, completed, onItemClick}) => {
     return (
         <Item 
-            className={"padding-small margin-small " + (completed ? 'background-primary' : 'shadow shadow-hover')} 
+            className={"padding-small margin-small " + (completed ? 'background-primary' : 'shadow shadow-hover')}
+            key={id}
             onClick={e => onItemClick(id)}
             style={completed ? {textDecoration: 'line-through'} : {}}
         >

@@ -2,13 +2,9 @@
 
 import { ADD_TODO, SET_FILTER, TOGGLE_TODO } from '../constants/action-types';
 
-let nextTodoId = 0;
-
-export const addTodo = (text) => ({
+export const addTodo = (payload) => ({
     type: ADD_TODO,
-    id: nextTodoId++,
-    completed: false,
-    text
+    payload
 });
 
 export const setFilter = (filter) => ({

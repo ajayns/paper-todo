@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Todo from './Todo';
+import Filter from './Filter';
 import { FILTER_ALL, FILTER_COMPLETED, FILTER_ACTIVE } from '../constants/filters';
 
 const filteredTodos = (todos, filter) => {
@@ -32,18 +33,21 @@ const List = styled.ul`
 
 const TodoList = ({todos}) => {
     if(todos.length === 0) 
-        return <div className="row flex-center">Chill bro :)</div>
+        return <div className="row flex-center margin-top-large">Chill scenes.</div>
 
     return (
-        <List className="child-borders">
-            {todos.map(todo => 
-                <Todo 
-                    className="row" 
-                    key={todo.id}
-                    {...todo}
-                />
-            )}
-        </List>
+        <div>
+            <List className="child-borders">
+                {todos.map(todo =>
+                    <Todo
+                        className="row"
+                        key={todo.id}
+                        {...todo}
+                    />
+                )}
+            </List>
+            <Filter/>
+        </div>        
     );
 }
 
