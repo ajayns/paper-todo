@@ -20,18 +20,15 @@ The classic Todos Tracker as a Progressive Web App. Built using React, Redux, le
 
 Install all the required packages/dependencies using yarn
 
-```bash
-yarn
-```
+### `yarn`
 
 Serve the app to browser
-```bash
-yarn start
-```
+
+### `yarn start`
 
 ## Checklist
 
-- [ ] Add Checklist
+- [ ] Use localstorage to store todos
 
 ## Contributing
 

@@ -30,10 +30,10 @@ const AddTodo = ({onSubmit}) => {
                     }}
                 className="row"
             >
-                <div className="col col-sm-9 padding-right-small">
+                <div className="col col-xs-9 padding-right-small">
                     <input type="text" placeholder="New Todo" ref={node => { input = node }} />
                 </div>
-                <div className="col col-sm-3 padding-left-small">
+                <div className="col col-xs-3 padding-left-small">
                     <input type="submit" value="Add" className="paper-btn btn-small" />
                 </div>
             </form>
