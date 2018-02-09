@@ -21,7 +21,8 @@ const filteredTodos = (todos, filter) => {
 
 const mapStateToProps = (state) => {
     return {
-        todos: filteredTodos(state.todos, state.filter)
+        todos: filteredTodos(state.todos, state.filter),
+        filter: state.filter
     }
 }
 
@@ -31,8 +32,8 @@ const List = styled.ul`
     padding-left: 0
 `;
 
-const TodoList = ({todos}) => {
-    if(todos.length === 0) 
+const TodoList = ({todos, filter}) => {
+    if(todos.length === 0 && filter === FILTER_ALL) 
         return <div className="row flex-center margin-top-large">Chill scenes.</div>
 
     return (
