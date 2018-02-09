@@ -11,9 +11,9 @@ const filteredTodos = (todos, filter) => {
         case FILTER_ALL:
             return todos;
         case FILTER_COMPLETED:
-            return todos.map(todo => todo.completed);
+            return todos.filter(todo => todo.completed);
         case FILTER_ACTIVE:
-            return todos.map(todo => !todo.completed);
+            return todos.filter(todo => !todo.completed);
         default:
             return todos;
     }
