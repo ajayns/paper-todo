@@ -26,7 +26,8 @@ Serve the app to browser
 
 ## Checklist
 
-- [x] Use localstorage to store todos
+- [ ] Use IndexedDB in place of localStorage
+- [ ] Improve methods by using Observables/Promises
 - [ ] Improve app responsiveness on all devices
 
 ## Contributing
